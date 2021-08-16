@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <!-- child templates -->
+  <a href="{% url 'listings:index' %}">Bike Finder</a>
+  <a href="{% url 'listings:all_listings' %}">Listings</a>
+  <a href="{% url 'listings:new_listing' %}">New Listing</a>
+</nav>
+
+<!-- empty block tags to be filled in from child templates -->
+{% block content %}
+
+{% endblock content %}
