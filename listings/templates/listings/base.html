@@ -5,15 +5,13 @@
     <a href="{% url 'listings:new_listing' %}">New Listing</a>
     <a href="{% url 'listings:my_listings' %}">My Listings</a>
 
-    {% if user.is_authenticated %}
-    {{ user.username }} -
-    <a href="{% url 'users:log_out' %}">LOGOUT</a>
+    {% if user.is_authenticated %} {{ user.username }} -
+    <a href="{% url 'users:log_out' %}">Logout</a>
     {% else %}
-    <a href="{% url 'users:login' %}">LOGIN</a>
+    <a href="{% url 'users:login' %}">Login</a>
+    <a href="{% url 'users:register' %}">Register</a>
     {% endif %}
 </nav>
 
 <!-- empty block tags to be filled in from child templates -->
-{% block content %}
-
-{% endblock content %}
+{% block content %} {% endblock content %}
