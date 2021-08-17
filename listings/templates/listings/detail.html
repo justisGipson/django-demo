@@ -13,6 +13,12 @@
     <p><b>Contact Email:</b> {{ detail.contact_email }}</p>
     <p><b>Post Date:</b> {{ detail.list_date }}</p>
     <p><b>Photos:</b></p>
+    <img src="{{ detail.main_photo.url }}" width= 400px height=400px />
+    <img src="{{ detail.photo_1.url }}" width= 400px height=400px />
+    {% if detail.photo_2%}
+    <img src="{{ detail.photo_2.url }}" width= 400px height=400px />
+    {% endif %}
+
 </div>
 
 {% endblock content %}

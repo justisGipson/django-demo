@@ -1,28 +1,40 @@
-{% extends "listings/base.html" %}
-
-{% block content %}
+{% extends "listings/base.html" %} {% block content %}
 
 <h1>Listings</h1>
 
 <div class="col">
-  <div class="card">
-    {% for listing in all_listings %}
+    <div class="card">
+        {% for listing in all_listings %}
 
-    <p><b>Title:</b> {{ listing.title }}</p>
-    <p><b>Condition:</b> {{ listing.condition }} </p>
-    <p><b>Sale Type:</b> {{ listing.sale_type }} </p>
-    <p><b>Price:</b> {{ listing.price|floatformat:2 }} </p>
-    <p><b>Location:</b> {{ listing.city }}, {{ listing.state }} </p>
-    <p><b>Post Date:</b> {{ listing.list_date }} </p>
+        <img
+            src="{{ listing.main_photo.url }}"
+            width="300px"
+            height="200px"
+            alt="connect"
+        />
+        <img
+            src="{{ listing.photo_1.url }}"
+            width="300px"
+            height="200px"
+            alt="connect"
+        />
 
-    <ul>
-      <a class="btn" href="{% url 'listings:detail' listing.id %}"> View Listing </a>
-    </ul>
-    <hr />
+        <p><b>Title:</b> {{ listing.title }}</p>
+        <p><b>Condition:</b> {{ listing.condition }}</p>
+        <p><b>Sale Type:</b> {{ listing.sale_type }}</p>
+        <p><b>Price:</b> {{ listing.price|floatformat:2 }}</p>
+        <p><b>Location:</b> {{ listing.city }}, {{ listing.state }}</p>
+        <p><b>Post Date:</b> {{ listing.list_date }}</p>
 
-    {% endfor %}
+        <ul>
+            <a class="btn" href="{% url 'listings:detail' listing.id %}">
+                View Listing
+            </a>
+        </ul>
+        <hr />
 
-  </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock content %}

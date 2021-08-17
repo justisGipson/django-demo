@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.timezone import now
 from datetime import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Listings(models.Model):
@@ -17,6 +18,8 @@ class Listings(models.Model):
         PARTS = "Parts"
         OTHER = "Other"
 
+    # CASCADE ensures that when a user is removed, so is the data associated with them
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
 
     condition = models.CharField(

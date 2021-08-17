@@ -1,5 +1,4 @@
-from typing import List
-from django.http import request
+from listings.filters import ListingFilter
 from django.shortcuts import redirect, render
 from .form import ListingForm
 from .models import Listings
@@ -13,8 +12,10 @@ def index(req):
 
 def all_listings(req):
     all_listings = Listings.objects.order_by("-list_date")
+    my_Filter = ListingFilter(req.GET, queryset=all_listings)
+    all_listings = my_Filter.qs
 
-    context = {"all_listings": all_listings}
+    context = {"all_listings": all_listings, "my_Filter": my_Filter}
     return render(req, "listings/all_listings.html", context)
 
 
@@ -27,7 +28,9 @@ def new_listing(req):
         form = ListingForm(req.POST, req.FILES)
         # check if is_valid against params in model
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.user = req.user
+            instance.save()
             # go back to listings page after submition
             return redirect("listings:all_listings")
 
@@ -43,7 +46,7 @@ def detail(req, detail_id):
 
 
 def my_listings(req):
-    my_listings = Listings.objects.order_by("-list_date")
+    my_listings = req.user.listings_set.order_by("-list_date")
 
     context = {"my_listings": my_listings}
     return render(req, "listings/my_listings.html", context)
