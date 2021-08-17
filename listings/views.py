@@ -62,3 +62,14 @@ def edit_listing(req, edit_id):
 
     context = {"listing": listing, "form": form}
     return render(req, "listings/edit_listing.html", context)
+
+
+def delete_listing(req, delete_id):
+    listing = Listings.objects.get(id=delete_id)
+
+    if req.method == "POST":
+        listing.delete()
+        return redirect("listings:my_listings")
+
+    context = {"listing": listing}
+    return render(req, "listings/delete_listing.html", context)
