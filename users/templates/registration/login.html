@@ -1,0 +1,8 @@
+<h2>Login</h2>
+
+<form method="POST" action="{% url 'users:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit" class="btn">Submit</button>
+    <input type="hidden" name="next" value="{% url 'listings:index' %}" />
+</form>
