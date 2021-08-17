@@ -1,3 +1,5 @@
+from typing import List
+from django.http import request
 from django.shortcuts import redirect, render
 from .form import ListingForm
 from .models import Listings
@@ -41,7 +43,22 @@ def detail(req, detail_id):
 
 
 def my_listings(req):
-    my_listings = Listings.objects.order_by("-list-date")
+    my_listings = Listings.objects.order_by("-list_date")
 
     context = {"my_listings": my_listings}
     return render(req, "listings/my_listings.html", context)
+
+
+def edit_listing(req, edit_id):
+    listing = Listings.objects.get(id=edit_id)
+
+    if req.method != "POST":
+        form = ListingForm(instance=listing)
+    else:
+        form = ListingForm(req.POST, req.FILES, instance=listing)
+        if form.is_valid():
+            form.save()
+            return redirect("listings:my_listings")
+
+    context = {"listing": listing, "form": form}
+    return render(req, "listings/edit_listing.html", context)
