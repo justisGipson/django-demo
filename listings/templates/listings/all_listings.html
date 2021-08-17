@@ -16,7 +16,7 @@
     <p><b>Post Date:</b> {{ listing.list_date }} </p>
 
     <ul>
-      <a class="btn" href=""> View Listing </a>
+      <a class="btn" href="{% url 'listings:detail' listing.id %}"> View Listing </a>
     </ul>
     <hr />
 

@@ -1,5 +1,5 @@
-from listings.form import ListingForm
 from django.shortcuts import redirect, render
+from .form import ListingForm
 from .models import Listings
 
 # Create your views here.
@@ -29,3 +29,8 @@ def new_listing(req):
   context = {'form': form}
   return render(req, 'listings/new_listing.html', context)
 
+def detail(req, detail_id):
+    detail = Listings.objects.get(id=detail_id)
+
+    context = {'detail': detail}
+    return render(req, 'listings/detail.html', context)
