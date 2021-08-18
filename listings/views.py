@@ -2,8 +2,7 @@ from listings.filters import ListingFilter
 from django.shortcuts import redirect, render
 from .form import ListingForm
 from .models import Listings
-
-# Create your views here.
+from .filters import ListingFilter
 
 
 def index(req):

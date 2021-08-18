@@ -2,6 +2,17 @@
 
 <h1>Listings</h1>
 
+<div class="form-group">
+    <div class="card">
+        <form method="GET">
+            <p><b>Condition:</b>{{ my_filter.form.condition }}</p>
+            <p><b>State:</b>{{ my_filter.form.state }}</p>
+            <p><b>City:</b>{{ my_filter.form.city }}</p>
+            <button class="btn" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+
 <div class="col">
     <div class="card">
         {% for listing in all_listings %}
