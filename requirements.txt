@@ -61,7 +61,7 @@ pexpect==4.8.0
 phue==1.1
 pickleshare==0.7.5
 pigar==0.10.0
-pipenv==2021.5.29
+pipenv==2022.1.8
 platformdirs==2.2.0
 prompt-toolkit==3.0.18
 protobuf==3.17.3
