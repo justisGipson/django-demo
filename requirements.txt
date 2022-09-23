@@ -64,7 +64,7 @@ pigar==0.10.0
 pipenv==2022.1.8
 platformdirs==2.2.0
 prompt-toolkit==3.0.18
-protobuf==3.17.3
+protobuf==3.18.3
 ptpython==3.0.17
 ptyprocess==0.7.0
 pwncat @ git+https://github.com/calebstewart/pwncat.git@c3a66542199711ca5f5bb4f4ebfa8f033d41fe93
