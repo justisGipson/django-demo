@@ -34,7 +34,7 @@ hidapi==0.10.0.post1
 idna==2.10
 ifaddr==0.1.7
 ipykernel==6.0.3
-ipython==7.31.1
+ipython==8.10.0
 ipython-genutils==0.2.0
 itsdangerous==2.0.1
 jedi==0.18.0
