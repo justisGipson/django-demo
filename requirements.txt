@@ -95,7 +95,7 @@ speedtest-cli==2.1.3
 sqlparse==0.4.4
 tabula-py==2.2.0
 toml==0.10.2
-tornado==6.3.2
+tornado==6.3.3
 traitlets==5.0.5
 transaction==3.0.1
 updog==1.4
