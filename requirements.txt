@@ -18,7 +18,7 @@ chardet==3.0.4
 click==7.1.2
 colorama==0.4.4
 commonmark==0.9.1
-cryptography==42.0.2
+cryptography==42.0.4
 Cython==0.29.24
 debugpy==1.4.1
 decorator==5.0.9
